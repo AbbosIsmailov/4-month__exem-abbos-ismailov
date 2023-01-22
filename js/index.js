@@ -166,8 +166,11 @@ let filterForm = document.getElementById("filter-form");
 filterForm.addEventListener("submit", (e) => {
       e.preventDefault();
       let searchInput = document.getElementById("search-input");
+      let priceFromInput = document.getElementById("price-from-input")
+      let widthFromInput = document.getElementById("width-from-input")
+      let priceToInput = document.getElementById("price-to-input")
 
-      fetch(`http://188.225.31.249:3001/parrots?q=${searchInput.value}`).then((parrotsList) => {
+      fetch(`http://188.225.31.249:3001/parrots?q=${searchInput.value}&price_gte=${priceFromInput.value}&price_lte=${priceToInput.value}`).then((parrotsList) => {
             parrotsList.json().then(parrotsList => {
                   parrotsRender(parrotsList);
             })
