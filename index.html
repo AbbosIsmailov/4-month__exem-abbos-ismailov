@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Month 4 Exem</title>
+      <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="./css/index.css">
+      <script src="https://kit.fontawesome.com/1ab8c179f1.js" crossorigin="anonymous"></script>
+
+      <template id="parrots-template">
+            <div class="card card-parrots" style="width: 18rem;">
+                  <div class="card-icons">
+                        <i class="fa-regular fa-star bg-success"></i>
+                        <i class="fa-solid fa-pencil bg-secondary" data-bs-toggle="modal"
+                              data-bs-target="#exampleModal"></i>
+                        <i class="fa-solid fa-trash bg-danger"></i>
+                  </div>
+                  <img src="" class="card-img-top " alt="...">
+                  <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">
+
+                        </p>
+                  </div>
+            </div>
+      </template>
+</head>
+
+<body>
+      <header class="header container">
+            <h1 class="logo-parrot">Zimbabwa parrots</h1>
+            <button class="btn btn-primary fw-medium" id="new-parrot" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal2">Add parrot <i class="fa-solid fa-plus"></i> </button>
+      </header>
+      <section class="container">
+            <div class="row">
+                  <div class="col-3 search-parrots">
+                        <h3>Filter</h3>
+                        <form action="" id="filter-form">
+                              <label for="search-input" class="w-100">Search
+                                    <input id="search-input" class="form-control" type="search" placeholder="Search">
+                              </label>
+                              <label class="price mt-3">Price
+                                    <div>
+                                          <input id="price-from-input" class="form-control rounded-0" type="text"
+                                                placeholder="From">
+                                          <input id="price-to-input" class="form-control rounded-0" type="text"
+                                                placeholder="To">
+                                    </div>
+                              </label>
+                              <label class="price mt-3">Width
+                                    <div>
+                                          <input id="width-from-input" class="form-control rounded-0" type="text"
+                                                placeholder="From width">
+                                          <input id="width-to-input" class="form-control rounded-0" type="text"
+                                                placeholder="To width">
+                                    </div>
+                              </label>
+                              <label class="price mt-3">Height
+                                    <div>
+                                          <input id="height-from-input" class="form-control rounded-0" type="text"
+                                                placeholder="From height">
+                                          <input id="height-to-input" class="form-control rounded-0" type="text"
+                                                placeholder="To height">
+                                    </div>
+                              </label>
+                              <label class="mt-3 w-100" for="sort-toti">Sort parrots
+                                    <select name="sort" id="sort-toti" class="form-control w-100 mt-1">
+                                          <option value="price expensive">price expensive</option>
+                                          <option value="price expensive">price cheep</option>
+                                    </select>
+                              </label>
+                              <button id="filter-btn" class="btn btn-primary fw-medium w-100 mt-3">Filter</button>
+                        </form>
+                  </div>
+                  <div class="col-6 col-parrots border">
+                        <div class="row row-parrots w-100 m-auto d-flex flex-wrap">
+
+                        </div>
+                  </div>
+                  <div class="col-3 border"></div>
+            </div>
+      </section>
+
+
+
+
+
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                  <div class="modal-content">
+                        <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Edit this perrot</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                              <form id="form-add">
+                                    <input type="text" id="add-title-input" class="form-control"
+                                          placeholder="Title edit">
+                                    <input type="text" id="add-price-input" class="form-control my-2"
+                                          placeholder="Price edit">
+                                    <input type="text" id="add-img-input" class="form-control" placeholder="Img Url">
+                                    <input type="text" id="add-size-height-input" class="form-control my-2"
+                                          placeholder="Size height">
+                                    <input type="text" id="add-size-width-input" class="form-control"
+                                          placeholder="Size width">
+                                    <input type="date" id="add-birth-date-input" class="form-control my-2"
+                                          placeholder="Birth date">
+                                    <input type="text" id="add-features-input" class="form-control my-2"
+                                          placeholder="features">
+                                    <button id="add-btn" class="btn btn-primary" data-bs-dismiss="modal">Save
+                                          changes</button>
+                              </form>
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div class="modal-dialog">
+                  <div class="modal-content">
+                        <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel2">New parrot</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                              <form id="new-parrot-form">
+                                    <input type="text" id="title-input" class="form-control" placeholder="Title add">
+                                    <input type="text" id="price-input" class="form-control my-2"
+                                          placeholder="Price add">
+                                    <input type="text" id="img-input" class="form-control" placeholder="Img Url">
+                                    <input type="text" id="size-height-input" class="form-control my-2"
+                                          placeholder="Size height">
+                                    <input type="text" id="size-width-input" class="form-control"
+                                          placeholder="Size width">
+                                    <input type="date" id="birth-date-input" class="form-control my-2"
+                                          placeholder="Birth date">
+                                    <input type="text" id="features-input" class="form-control my-2"
+                                          placeholder="features">
+                                    <button id="save-new-parrot" class="btn btn-primary" data-bs-dismiss="modal">Save
+                                          changes</button>
+                              </form>
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+      <script src="./bootstrap/js/bootstrap.min.js"></script>
+      <script src="./js/index.js"></script>
+      <script src="./js/filter.js"></script>
+</body>
+
+</html>

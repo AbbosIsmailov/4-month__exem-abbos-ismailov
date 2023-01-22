@@ -1,0 +1,69 @@
+* {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+}
+
+.header {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+
+.price {
+      div {
+            display: flex;
+            justify-content: space-between;
+      }
+
+      input {
+            width: 40%;
+      }
+}
+
+.row-parrots{
+      .card {
+            padding: 0;
+            margin: 10px;
+      }
+
+}
+
+.card-icons {
+      position: absolute;
+      right: 0;
+      z-index: 31;
+
+      i {
+            height: 35px;
+            width: 35px;
+            text-align: center;
+            padding-top: 9px;
+            color: white;
+      }
+
+      .fa-pencil {
+            margin-right: -5px;
+      }
+
+      .fa-star {
+            margin-right: -5px;
+            color: yellow;
+      }
+}
+///// js classlar
+.size-width{
+      display: block;
+      width: 50%;
+      text-align: center;
+      font-weight: 500;
+      font-size: 14px;
+      margin: 5px 0;
+}
+.price-parrot{
+      background: #fbe1cf;
+      font-weight: bold;
+      padding:0 5px;
+      border-radius: 5px;
+}
