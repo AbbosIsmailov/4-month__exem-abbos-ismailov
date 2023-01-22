@@ -11,12 +11,15 @@ async function httpGet(url) {
 let addBtn = document.getElementById("add-btn")
 let formAdd = document.getElementById("form-add")
 let rowParrots = document.getElementsByClassName("row-parrots")[0];
+
 function parrotsRender(parrotsList) {
       rowParrots.innerHTML = ""
       let fragment = new DocumentFragment();
       parrotsList.forEach((element, index) => {
             let parrotsTemplate = document.getElementById("parrots-template").cloneNode(true).content;
             let editParrot = parrotsTemplate.querySelector('.fa-pencil');
+            let cardFeatures = parrotsTemplate.getElementById("card-features")
+
             let removeParrot = parrotsTemplate.querySelector('.fa-trash');
             // let favouriteParrot = parrotsTemplate.querySelector('.fa-star');
             let cardImgTop = parrotsTemplate.querySelector('.card-img-top');
@@ -37,6 +40,7 @@ function parrotsRender(parrotsList) {
             let birthDateParrot = document.createElement("span");
             birthDateParrot.innerHTML = element.birthDate;
 
+            cardFeatures.innerHTML = element.features;
             editParrot.onclick = () => {
                   setFormValues(element);
             }
@@ -165,7 +169,7 @@ filterForm.addEventListener("submit", (e) => {
 
       fetch(`http://188.225.31.249:3001/parrots?q=${searchInput.value}`).then((parrotsList) => {
             parrotsList.json().then(parrotsList => {
-                  parrotsRender(parrotsList)
+                  parrotsRender(parrotsList);
             })
       });
 })
