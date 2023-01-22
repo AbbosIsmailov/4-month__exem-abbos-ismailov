@@ -21,7 +21,7 @@ function parrotsRender(parrotsList) {
             let cardFeatures = parrotsTemplate.getElementById("card-features")
 
             let removeParrot = parrotsTemplate.querySelector('.fa-trash');
-            // let favouriteParrot = parrotsTemplate.querySelector('.fa-star');
+            let favouriteParrot = parrotsTemplate.querySelector('.fa-star');
             let cardImgTop = parrotsTemplate.querySelector('.card-img-top');
             cardImgTop.src = element.img;
 
@@ -39,8 +39,9 @@ function parrotsRender(parrotsList) {
 
             let birthDateParrot = document.createElement("span");
             birthDateParrot.innerHTML = element.birthDate;
-
             cardFeatures.innerHTML = element.features;
+
+
             editParrot.onclick = () => {
                   setFormValues(element);
             }
@@ -49,6 +50,10 @@ function parrotsRender(parrotsList) {
                   httpDelete(`http://188.225.31.249:3001/parrots/${element.id}`)
             }
 
+            favouriteParrot.onclick = () => {
+                  favouriteParrot.classList.toggle("fa-regular");
+                  favouriteParrot.classList.toggle("fa-solid");
+            }
 
             cardText.append(priceParrot, sizeParrot, birthDateParrot);
             fragment.append(parrotsTemplate)
@@ -161,14 +166,13 @@ newParrotForm.addEventListener("submit", (e) => {
 })
 ///////////////////////////////////////////
 
-
+////////////// Filter qismi
 let filterForm = document.getElementById("filter-form");
 filterForm.addEventListener("submit", (e) => {
       e.preventDefault();
       let searchInput = document.getElementById("search-input");
-      let priceFromInput = document.getElementById("price-from-input")
-      let widthFromInput = document.getElementById("width-from-input")
-      let priceToInput = document.getElementById("price-to-input")
+      let priceFromInput = document.getElementById("price-from-input");
+      let priceToInput = document.getElementById("price-to-input");
 
       fetch(`http://188.225.31.249:3001/parrots?q=${searchInput.value}&price_gte=${priceFromInput.value}&price_lte=${priceToInput.value}`).then((parrotsList) => {
             parrotsList.json().then(parrotsList => {
@@ -176,7 +180,7 @@ filterForm.addEventListener("submit", (e) => {
             })
       });
 })
-
+///////////// filter tugadi /////
 
 
 
